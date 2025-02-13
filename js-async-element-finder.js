@@ -14,7 +14,7 @@ function find(selector, attempts = 10, interval = 100, element = document) {
         function attempt() {
             let searchContext = element;
             
-            if (element.tagName.toLowerCase() === 'iframe') {
+            if (!!element.tagName && element.tagName.toLowerCase() === 'iframe') {
                 searchContext = element.contentDocument || element.contentWindow.document;
             }
             
